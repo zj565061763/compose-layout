@@ -1,6 +1,5 @@
 package com.sd.lib.compose.layout
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -17,7 +16,6 @@ interface FComposeLayoutApi {
 
 @Composable
 fun FComposeLayout(
-    modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
     check(LocalComposeLayout.current == null) {
@@ -29,9 +27,7 @@ fun FComposeLayout(
     CompositionLocalProvider(
         LocalComposeLayout provides composeLayout,
     ) {
-        Box(modifier = modifier) {
-            content()
-        }
+        content()
     }
 }
 
